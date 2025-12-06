@@ -1,2 +1,2 @@
-# CSCI2824_Project
-Final project for CSCI 2824
+# CSCI2275_Project
+Final project for CSCI 2275
