@@ -17,13 +17,13 @@ Destructor:
     ~Graph();
 Mutator functions:
 
-    void createPath(int x1, int y1, int x2, int y2, const string& type);
-    void createPoint(int x, int y, int height);
-    void setHeight(int x, int y, int height);
-    void flatten(int x, int y);
-    void flattenAll();
+    void createPath(int x1, int y1, int x2, int y2, const string& type); // creates a path between two points
+    void createPoint(int x, int y, int height); // creates a new point where one didn't previously exist
+    void setHeight(int x, int y, int height); // changes height of a point
+    void flatten(int x, int y); // sets height of a point to 0
+    void flattenAll(); // sets height of every point on the grid to 0
 Getter functions:
     
-    void displayMatrix() const;
-    void displayPaths() const;
-    void getBestPath(int x1, int y1, int x2, int y2); // prints path and distance
+    void displayMatrix() const; // displays current 2d array with heights
+    void displayPaths() const; // displays all paths from each point
+    void getBestPath(int x1, int y1, int x2, int y2); // prints most efficient path between two points
