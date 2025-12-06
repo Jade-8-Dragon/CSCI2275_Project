@@ -1,2 +1,2 @@
 # CSCI2275_Project
-Final project for CSCI 2275
+Our project aims to accurately map a 3D environment which is made up of a 2d coordinate system extended to 3D by giving each coordinate point a height. In order to not have the environment’s upward facing surface be made of cubes, we implemented a path system that allows each coordinate point to have different shapes of path between the surrounding points. This allows us to have different traversal distances (as if a person is moving between coordinate points) between points. We used this to model the shortest path between different points given that different shapes may force the person to move along some paths slower than others despite the shorter distance in the xy-plane.
