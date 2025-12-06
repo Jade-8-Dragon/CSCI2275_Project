@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "Graph.hpp"
+#include "graph.hpp"
 
 using namespace std;
 
@@ -13,7 +13,10 @@ int main(int argc, char* argv[]) {
 
     string filename = argv[1];
     int size = stoi(argv[2]);
-
+    if (size < 1) {
+        cout << "Invalid size" << endl;
+        return 1;
+    }
     Graph map(size);
 
     ifstream file(filename);
@@ -60,13 +63,12 @@ int main(int argc, char* argv[]) {
              << "1. Create point\n"
              << "2. Create path\n"
              << "3. Change height\n"
-             << "4. Change path\n"
-             << "5. Flatten point\n"
-             << "6. Flatten graph\n"
-             << "7. Get shortest path\n"
-             << "8. Show graph\n"
-             << "9. Show edges\n"
-             << "10. Exit program\n";
+             << "4. Flatten point\n"
+             << "5. Flatten all\n"
+             << "6. Get shortest path\n"
+             << "7. Show graph\n"
+             << "8. Show edges\n"
+             << "9. Exit program\n";
 
         if (!(cin >> option)) {
             cin.clear();
@@ -109,16 +111,6 @@ int main(int argc, char* argv[]) {
                 break;
 
             case 4:
-                cout << "Enter x1 y1 x2 y2 newType: ";
-                cin >> x1 >> y1 >> x2 >> y2 >> type;
-                if (x1 >= size || x1 < 0 || y1 >= size || y1 < 0 || x2 >= size || x2 < 0 || y2 >= size || y2 < 0) {
-                    cout << "Invalid data" << endl;
-                    break;
-                }
-                map.setPath(x1, y1, x2, y2, type);
-                break;
-
-            case 5:
                 cout << "Enter x y: ";
                 cin >> x >> y;
                 if (x >= size || x < 0 ||y >= size || y < 0) {
@@ -127,12 +119,13 @@ int main(int argc, char* argv[]) {
                 }
                 map.flatten(x, y);
                 break;
-
-            case 6:
+                
+            case 5:
+                cout << "Flattening..." << endl;
                 map.flattenAll();
                 break;
 
-            case 7:
+            case 6:
                 cout << "Enter x1 y1 x2 y2: ";
                 cin >> x1 >> y1 >> x2 >> y2;
                 if (x1 >= size || x1 < 0 || y1 >= size || y1 < 0 || x2 >= size || x2 < 0 || y2 >= size || y2 < 0) {
@@ -142,15 +135,15 @@ int main(int argc, char* argv[]) {
                 map.getBestPath(x1, y1, x2, y2);
                 break;
 
-            case 8:
+            case 7:
                 map.displayMatrix();
                 break;
 
-            case 9:
+            case 8:
                 map.displayPaths();
                 break;
 
-            case 10:
+            case 9:
                 cout << "Exiting program.\n";
                 active = false;
                 break;
