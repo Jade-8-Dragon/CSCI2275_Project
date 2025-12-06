@@ -6,3 +6,24 @@ We primarily used a graph with a 2D Array implementation. Each “point” on th
 
 
 The graph allows us to easily store each point’s paths so that we can traverse through the whole matrix using Dijkstra’s to find the shortest path between points. Additionally, each edge calculates its own length based on the path type and the crow’s flight distance between the two points.
+
+
+# Documentation
+Constructor:
+
+    Graph(int size);
+Destructor:
+
+    ~Graph();
+Mutator functions:
+
+    void createPath(int x1, int y1, int x2, int y2, const string& type);
+    void createPoint(int x, int y, int height);
+    void setHeight(int x, int y, int height);
+    void flatten(int x, int y);
+    void flattenAll();
+Getter functions:
+    
+    void displayMatrix() const;
+    void displayPaths() const;
+    void getBestPath(int x1, int y1, int x2, int y2); // prints path and distance
